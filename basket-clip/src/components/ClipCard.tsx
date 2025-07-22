@@ -44,6 +44,7 @@ export default function ClipCard({ clip }: ClipCardProps) {
             src={getVideoThumbnail(clip.video_url)}
             alt="Video thumbnail"
             className="w-full h-full object-cover"
+            // eslint-disable-next-line @next/next/no-img-element
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-lighter to-primary-light">
