@@ -61,7 +61,8 @@ export default function ClipForm({ onSubmit }: ClipFormProps) {
       }
     } catch (error) {
       console.error('Error submitting clip:', error)
-      alert(`投稿に失敗しました: ${error.message || error}`)
+      const errorMessage = error instanceof Error ? error.message : String(error)
+      alert(`投稿に失敗しました: ${errorMessage}`)
     } finally {
       setIsSubmitting(false)
     }
