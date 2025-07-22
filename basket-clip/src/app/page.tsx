@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import ClipForm from '@/components/ClipForm'
 import ClipCard from '@/components/ClipCard'
 import FilterBar from '@/components/FilterBar'
+// import TestConnection from '@/components/TestConnection'
 
 export default function Home() {
   const [clips, setClips] = useState<ClipData[]>([])
@@ -75,6 +76,7 @@ export default function Home() {
       <Header />
       
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* <TestConnection /> */}
         <ClipForm onSubmit={handleNewClip} />
         
         {clips.length > 0 && (
@@ -111,7 +113,7 @@ export default function Home() {
       <footer className="bg-white border-t border-gray-200 mt-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-gray-600">
-            <p>&copy; 2024 BasketClip - バスケットボール動画共有アプリ</p>
+            <p>&copy; 2025 BasketClip - バスケットボール動画共有アプリ</p>
           </div>
         </div>
       </footer>

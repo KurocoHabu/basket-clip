@@ -34,14 +34,21 @@ export default function ClipForm({ onSubmit }: ClipFormProps) {
     setIsSubmitting(true)
 
     try {
+      console.log('Submitting clip data:', formData)
       const { data, error } = await supabase
         .from('clips')
         .insert([formData])
         .select()
 
-      if (error) throw error
+      console.log('Supabase response:', { data, error })
+
+      if (error) {
+        console.error('Supabase error:', error)
+        throw error
+      }
 
       if (data && data[0]) {
+        console.log('Successfully inserted:', data[0])
         onSubmit(data[0])
         setFormData({
           username: '',
@@ -50,10 +57,11 @@ export default function ClipForm({ onSubmit }: ClipFormProps) {
           memo: ''
         })
         setShowForm(false)
+        alert('投稿が完了しました！')
       }
     } catch (error) {
       console.error('Error submitting clip:', error)
-      alert('投稿に失敗しました。もう一度お試しください。')
+      alert(`投稿に失敗しました: ${error.message || error}`)
     } finally {
       setIsSubmitting(false)
     }
